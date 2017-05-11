@@ -1,0 +1,17 @@
+---
+- name: Install basic tools
+  pacman: name={{ item }} state=present
+  with_items:
+    - ack
+    - arandr
+    - docker
+    - docker-compose
+    - git
+    - gvim
+    - net-tools
+    - ntfs-3g
+    - nodejs
+    - pavucontrol
+    - rsync
+    - unzip
+    - zsh

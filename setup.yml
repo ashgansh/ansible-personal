@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Get size of long to determine architecture
+      command: getconf LONG_BIT
+      register: long_bit
+      changed_when: false
+
+    # Used, hackily, to not reinstall AUR packages
+    - name: Get list of installed packages
+      command: pacman -Qq
+      register: installed_packages
+      changed_when: false
+
+    - include: tasks/fonts.yml
+    - include: tasks/basic-tools.yml
