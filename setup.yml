@@ -1,18 +1,54 @@
 ---
 - hosts: localhost
   connection: local
+  become_user: benjaminshafii
+  vars:
+    packages:
+      - calibre
+      - chromium
+      - firefox-developer
+      - polybar-git
+      - spotifyd
+      - docker
+      - docker-compose
+      - ack
+      - i3lock
+      - i3-gaps
+      - nodejs
+      - playerctl
+      - slack-desktop
+      - synergy
+      - tree
+      - ttf-fira-mono
+      - ttf-monaco
+      - vlc
+      - adobe-source-code-pro-fonts
+      - compton
+    dotfiles:
+      - gitconfig
+      - gitignore_global
+      - vimrc
+      - xinitrc
+      - zshrc
+      - config/compton
+      - config/dunst
+      - config/rofi
+      - config/polybar
+      - Xresources
 
   tasks:
-    - name: Get size of long to determine architecture
-      command: getconf LONG_BIT
-      register: long_bit
-      changed_when: false
+    - name: Create dotfile symlinks
+      file:
+        src: /home/benjaminshafii/dotfiles/{{ item }}
+        dest: /home/benjaminshafii/.{{ item }}
+        state: link
+        force: yes
+      with_items: "{{ dotfiles }}"
 
-    # Used, hackily, to not reinstall AUR packages
-    - name: Get list of installed packages
-      command: pacman -Qq
-      register: installed_packages
-      changed_when: false
+    - name: Install "{{ item }}"
+      aur: name={{ item }}
+      with_items: "{{ packages }}"
 
-    - include: tasks/fonts.yml
-    - include: tasks/basic-tools.yml
+
+
+
