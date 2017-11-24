@@ -22,11 +22,14 @@
       - tree
       - ttf-fira-mono
       - ttf-monaco
+      - ttf-ms-fonts
       - vlc
       - adobe-source-code-pro-fonts
       - compton
       - clang
       - arandr
+      - ttf-font-awesome
+
     dotfiles:
       - gitconfig
       - gitignore_global
