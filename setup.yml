@@ -16,6 +16,7 @@
       - i3-gaps
       - nodejs
       - playerctl
+      - rofi
       - slack-desktop
       - synergy
       - tree
@@ -24,6 +25,8 @@
       - vlc
       - adobe-source-code-pro-fonts
       - compton
+      - clang
+      - arandr
     dotfiles:
       - gitconfig
       - gitignore_global
@@ -36,6 +39,7 @@
       - config/polybar
       - config/i3
       - Xresources
+      - config/Xresources
 
   tasks:
     - name: Create dotfile symlinks
