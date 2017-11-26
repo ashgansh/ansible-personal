@@ -29,6 +29,7 @@
       - clang
       - arandr
       - ttf-font-awesome
+      - termite
 
     dotfiles:
       - gitconfig
@@ -43,6 +44,7 @@
       - config/i3
       - Xresources
       - config/Xresources
+      - config/termite
 
   tasks:
     - name: Create dotfile symlinks
