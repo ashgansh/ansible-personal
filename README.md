@@ -5,7 +5,7 @@ machines.
 
 ```sh
 ansible-playbook setup.yml
-``
+```
 
 ## How to execute a specific task
 
