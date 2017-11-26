@@ -3,6 +3,7 @@
   connection: local
   become_user: benjaminshafii
   vars:
+    username: benjaminshafii
     packages:
       - ack
       - adobe-source-code-pro-fonts
@@ -63,15 +64,12 @@
       tags:
         - install
 
-    - name: Create symlinks for secrets
-      file:
+    - name: Copy secrets
+      copy:
         src: /home/benjaminshafii/ansible-personal/toolbox.zsh
         dest: /home/benjaminshafii/.config/toolbox.zsh
-        state: link
+        decrypt: yes
         force: yes
       tags:
         - secrets
-
-
-
 
