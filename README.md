@@ -4,6 +4,8 @@ machines.
 ## Provision Computer
 
 ```sh
+# first decrypt the secret
+ansible-vault decrypt toolbox.zsh
 ansible-playbook setup.yml
 ```
 

@@ -63,6 +63,13 @@
       tags:
         - install
 
+    - name: Create symlinks for secrets
+      file:
+        src: ./toolbox.zsh
+        dest: /home/benjaminshafii/.custom/toolbox.zsh
+      tags:
+        - secrets
+
 
 
 
