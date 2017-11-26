@@ -4,47 +4,47 @@
   become_user: benjaminshafii
   vars:
     packages:
+      - ack
+      - adobe-source-code-pro-fonts
+      - arandr
       - calibre
       - chromium
-      - firefox-developer
-      - polybar-git
-      - spotifyd
+      - clang
+      - compton
       - docker
       - docker-compose
-      - ack
-      - i3lock
+      - firefox-developer
       - i3-gaps
+      - i3lock
       - nodejs
+      - openvpn
       - playerctl
+      - polybar-git
       - rofi
       - slack-desktop
+      - spotifyd
       - synergy
+      - termite
       - tree
       - ttf-fira-mono
+      - ttf-font-awesome
       - ttf-monaco
       - ttf-ms-fonts
       - vlc
-      - adobe-source-code-pro-fonts
-      - compton
-      - clang
-      - arandr
-      - ttf-font-awesome
-      - termite
-      - openvpn
 
     dotfiles:
+      - config/Xresources
+      - config/compton
+      - config/dunst
+      - config/i3
+      - config/polybar
+      - config/rofi
+      - config/termite
       - gitconfig
       - gitignore_global
       - vimrc
       - xinitrc
       - zshrc
-      - config/compton
-      - config/dunst
-      - config/rofi
-      - config/polybar
-      - config/i3
-      - config/Xresources
-      - config/termite
 
   tasks:
     - name: Create dotfile symlinks
