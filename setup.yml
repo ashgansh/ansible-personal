@@ -42,7 +42,6 @@
       - config/rofi
       - config/polybar
       - config/i3
-      - Xresources
       - config/Xresources
       - config/termite
 
