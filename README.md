@@ -5,8 +5,7 @@ machines.
 
 ```sh
 # first decrypt the secret
-ansible-vault decrypt toolbox.zsh
-ansible-playbook setup.yml
+ansible-playbook setup.yml --ask-vault-pass
 ```
 
 ## How to execute a specific task
