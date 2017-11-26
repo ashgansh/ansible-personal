@@ -65,8 +65,10 @@
 
     - name: Create symlinks for secrets
       file:
-        src: ./toolbox.zsh
-        dest: /home/benjaminshafii/.custom/toolbox.zsh
+        src: /home/benjaminshafii/ansible-personal/toolbox.zsh
+        dest: /home/benjaminshafii/.config/toolbox.zsh
+        state: link
+        force: yes
       tags:
         - secrets
 
