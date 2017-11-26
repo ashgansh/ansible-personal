@@ -30,6 +30,7 @@
       - arandr
       - ttf-font-awesome
       - termite
+      - openvpn
 
     dotfiles:
       - gitconfig
