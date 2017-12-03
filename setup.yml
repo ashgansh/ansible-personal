@@ -50,11 +50,15 @@
       - xclip
       - xinitrc
       - zshrc
+    secrets:
+      - aws/credentials
+      - config/toolbox.zsh
+      - npm-registry
 
   tasks:
     - name: Create dotfile symlinks
       file:
-        src: /home/benjaminshafii/dotfiles/{{ item }}
+        src: ./dotfiles/{{ item }}
         dest: /home/benjaminshafii/.{{ item }}
         state: link
         force: yes
@@ -70,10 +74,11 @@
 
     - name: Copy secrets
       copy:
-        src: /home/benjaminshafii/ansible-personal/toolbox.zsh
-        dest: /home/benjaminshafii/.config/toolbox.zsh
+        src: ./dotfiles/{{ item }}
+        dest: /home/benjaminshafii/.{{ item }}
         decrypt: yes
         force: yes
+      with_items: "{{ secrets }}"
       tags:
         - secrets
 
