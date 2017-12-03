@@ -58,7 +58,7 @@
   tasks:
     - name: Create dotfile symlinks
       file:
-        src: ./dotfiles/{{ item }}
+        src: /home/benjaminshafii/ansible-personal/dotfiles/{{ item }}
         dest: /home/benjaminshafii/.{{ item }}
         state: link
         force: yes
