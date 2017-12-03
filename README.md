@@ -1,10 +1,20 @@
 This repository contains an Ansible playbook to set up my personal Arch Linux
 machines.
 
+## Get the repo
+```sh
+git clone https://github.com/benjaminshafii/ansible-personal.git
+cd ansible-personal
+git submodule update --recursive --remote
+```
+
+
+## Preflight
+sh ./install.sh
+
 ## Provision Computer
 
 ```sh
-# first decrypt the secret
 ansible-playbook setup.yml --ask-vault-pass
 ```
 
