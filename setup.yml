@@ -13,17 +13,19 @@
       - clang
       - compton
       - docker
+      - dunst
       - docker-compose
       - firefox-developer
       - i3-gaps
       - i3lock
       - nodejs
       - openvpn
+      - pavucontrol
       - playerctl
       - polybar-git
       - rofi
+      - scrot
       - slack-desktop
-      - spotifyd
       - synergy
       - termite
       - tree
@@ -32,6 +34,7 @@
       - ttf-monaco
       - ttf-ms-fonts
       - vlc
+      - xorg-xbacklight
 
     dotfiles:
       - config/Xresources
@@ -44,6 +47,7 @@
       - gitconfig
       - gitignore_global
       - vimrc
+      - xclip
       - xinitrc
       - zshrc
 
@@ -72,4 +76,21 @@
         force: yes
       tags:
         - secrets
+
+    - name: Create Docker groups
+      group:
+        name: docker
+        state: present
+      tags:
+        - docker
+
+    - name: Add Docker to sudoers
+      user:
+        append: yes
+        group: docker
+        name: "{{ username }}"
+      become: true
+      tags:
+        - docker
+
 
