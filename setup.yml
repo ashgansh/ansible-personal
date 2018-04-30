@@ -1,9 +1,9 @@
 ---
 - hosts: localhost
   connection: local
-  become_user: benjaminshafii
+  become: yes
   vars:
-    username: benjaminshafii
+    username: benjamin
     packages:
       - ack
       - adobe-source-code-pro-fonts
