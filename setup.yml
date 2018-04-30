@@ -58,6 +58,14 @@
       - config/toolbox.zsh
 
   tasks:
+    - name: Create aws directory
+      file:
+        path: /home/benjamin/.aws
+        state: directory
+      tags:
+        - secrets
+        - aws
+
     - name: Create dotfile symlinks
       file:
         src: /home/benjamin/git/ansible-personal/dotfiles/{{ item }}
