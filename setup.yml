@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  become: yes
   vars:
     username: benjamin
     packages:
@@ -18,6 +17,7 @@
       - i3-gaps
       - i3lock
       - nodejs
+      - npm
       - openvpn
       - pavucontrol
       - playerctl
@@ -36,6 +36,7 @@
       - ttf-ms-fonts
       - gvim
       - visual-studio-code-bin
+      - yarn
       - vlc
       - xorg-xbacklight
       - zsh
@@ -118,6 +119,7 @@
         - ssh
 
     - name: Create Docker groups
+      become: yes
       group:
         name: docker
         state: present
@@ -125,12 +127,15 @@
         - docker
 
     - name: Add Docker to sudoers
+      become: yes
       user:
         append: yes
-        group: docker
+        groups: docker
         name: "{{ username }}"
-      become: true
       tags:
         - docker
+
+    - name: Enable docker daemon
+      service: name=docker state=started enabled=yes
 
 
