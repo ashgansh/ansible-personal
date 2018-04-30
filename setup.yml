@@ -15,7 +15,6 @@
       - docker
       - dunst
       - docker-compose
-      - firefox-developer
       - i3-gaps
       - i3lock
       - nodejs
@@ -88,7 +87,7 @@
 
     - name: Copy public key
       copy:
-        src: ./ssh/id_rsa
+        src: ./ssh/id_rsa.pub
         dest: /home/benjamin/.ssh/id_rsa.pub
         force: yes
       tags:
