@@ -57,7 +57,6 @@
     secrets:
       - aws/credentials
       - config/toolbox.zsh
-      - npm-registry
 
   tasks:
     - name: Create dotfile symlinks
@@ -85,6 +84,31 @@
       with_items: "{{ secrets }}"
       tags:
         - secrets
+     
+
+    - name: Copy public key
+      copy:
+        src: ./ssh/id_rsa
+        dest: /home/benjamin/.ssh/id_rsa.pub
+        force: yes
+      tags:
+        - ssh
+
+    - name: Copy ssh credentials
+      copy:
+        src: ./ssh/id_rsa
+        dest: /home/benjamin/.ssh/id_rsa
+        decrypt: yes
+        force: yes
+      tags:
+        - ssh
+
+    - name: Set ssh permissions
+      file:
+        path: /home/benjamin/.ssh/id_rsa
+        mode: 0400 
+      tags:
+        - ssh
 
     - name: Create Docker groups
       group:

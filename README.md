@@ -10,7 +10,13 @@ git submodule update --recursive --remote
 
 
 ## Preflight
-sh ./install.sh
+
+Configure vim
+
+`sh ./dotfiles/install.sh`
+
+Install pacaur
+`sh ./pacaur_install.sh`
 
 ## Provision Computer
 
