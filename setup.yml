@@ -44,7 +44,6 @@
     dotfiles:
       - config/Xresources
       - config/compton
-      - config/dunst
       - config/i3
       - config/polybar
       - config/rofi
@@ -63,8 +62,8 @@
   tasks:
     - name: Create dotfile symlinks
       file:
-        src: /home/benjaminshafii/ansible-personal/dotfiles/{{ item }}
-        dest: /home/benjaminshafii/.{{ item }}
+        src: /home/benjamin/git/ansible-personal/dotfiles/{{ item }}
+        dest: /home/benjamin/.{{ item }}
         state: link
         force: yes
       with_items: "{{ dotfiles }}"
@@ -72,7 +71,7 @@
         - dotfiles
 
     - name: Install "{{ item }}"
-      aur: name={{ item }}
+      aur: name={{ item }} auronly=no
       with_items: "{{ packages }}"
       tags:
         - install
@@ -80,7 +79,7 @@
     - name: Copy secrets
       copy:
         src: ./dotfiles/{{ item }}
-        dest: /home/benjaminshafii/.{{ item }}
+        dest: /home/benjamin/.{{ item }}
         decrypt: yes
         force: yes
       with_items: "{{ secrets }}"
