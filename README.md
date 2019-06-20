@@ -3,9 +3,11 @@ machines.
 
 ## Get the repo
 ```sh
+# only works with user benjamin
+# needs to be run from ~/git
 git clone https://github.com/benjaminshafii/ansible-personal.git
 cd ansible-personal
-git submodule update --recursive --remote
+git submodule update --recursive --remote --init
 ```
 
 
